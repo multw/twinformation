@@ -1,0 +1,83 @@
+<!--invoice.html-->
+{% extends 'base.html' %} <!-- 繼承base.html須提供三區塊 -->
+{% block title %} {{ post.title }} -宅天堂 {% endblock%}
+{% block headmessage %}
+	<h3 style="font-family: 微軟正黑體;">統一發票中獎號碼</h3>
+ {% endblock%}
+ {% block content%}
+
+		<form action="." method="POST">
+		{% csrf_token %}
+		<!--<select name="date" onChange="location = this.options[this.selectedIndex].value;">
+		<select name="date" onChange="this.form.submit()">-->
+			<div class="form-group">
+					{{iform.as_p}}
+			</div>
+		<!--{% for i in form %}-->
+			<!--<option value="{{i.id}}" >{{ i.date }}</option>-->
+		<!--{% endfor %}
+		</select>-->
+		</form>
+	 	<div class="table">
+			<!--{%block invoicelist%}  {%endblock%}  區塊invoice list -->
+			<h2>{{date}}</h2>
+		<table class="table table-bordered" cellspacing="1" cellpadding="0" summary="統一發票中獎號碼"><caption>統一發票中獎號碼</caption>
+			<tbody>
+				<tr>
+					<th scope="col">獎別</th>
+					<th scope="col">中獎號碼</th>
+				</tr>
+				<tr style="display: special">
+					<td class="title">特別獎</td>
+					<td><span class="t18Red">{{special}}</span>
+						<br>同期統一發票收執聯8位數號碼與特別獎號碼相同者獎金 1,000 萬元</td>
+				</tr>
+				<tr>
+					<td class="title">特獎</td>
+					<td><span class="t18Red">{{one}}</span>
+						<br>同期統一發票收執聯8位數號碼與特獎號碼相同者獎金 200 萬元</td>
+				</tr>
+				<tr>
+					<td class="title">頭獎</td>
+					<td><span id="newFirstPrize" class="t18Red">
+						{% for h in head %}
+						{{h}}<br>
+						{% endfor %}
+						</span>
+						同期統一發票收執聯8位數號碼與頭獎號碼相同者獎金 20 萬元</td>
+				</tr>
+				<tr>
+					<td class="title">二獎</td>
+					<td>同期統一發票收執聯末7 位數號碼與頭獎中獎號碼末7 位相同者各得獎金 4  萬元</td>
+				</tr>
+				<tr>
+					<td class="title">三獎</td>
+					<td>同期統一發票收執聯末6 位數號碼與頭獎中獎號碼末6 位相同者各得獎金 1  萬元</td>
+				</tr>
+				<tr>
+					<td class="title">四獎</td>
+					<td>同期統一發票收執聯末5 位數號碼與頭獎中獎號碼末5 位相同者各得獎金 4  千元</td>
+				</tr>
+				<tr>
+					<td class="title">五獎</td>
+					<td>同期統一發票收執聯末4 位數號碼與頭獎中獎號碼末4 位相同者各得獎金 1 千元</td>
+				</tr>
+				<tr>
+					<td class="title">六獎</td>
+					<td>同期統一發票收執聯末3 位數號碼與 頭獎中獎號碼末3 位相同者各得獎金 2 百元	</td>
+				</tr>
+				<tr style="display: addition">
+					<td class="title">增開六獎</td>
+					<td><span id="newAddSixPrize" class="t18Red">
+						{% for s in six %}
+						{{s}}<br>
+						{% endfor %}
+						</span>
+						同期統一發票收執聯末3位數號碼與增開六獎號碼相同者各得獎金 2 百元</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	 	
+
+ {% endblock%}

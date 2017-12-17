@@ -1,0 +1,56 @@
+<!--oilprice.html-->
+{% extends 'base.html' %} <!-- 繼承base.html須提供三區塊 -->
+{% block title %} {{ post.title }} -宅天堂 {% endblock%}
+{% block headmessage %}
+	<h3 style="font-family: 微軟正黑體;">中油油價</h3>
+ {% endblock%}
+ {% block content%}
+ 		<form action="." method="GET">
+ 			<div class="form-group">
+				{{oilform.as_p}}
+			</div>
+ 		</form>
+ 		<table class="table table-striped" >
+ 		<tr>
+ 		<td>日期</td>
+ 		<td>92無鉛</td>
+ 		<td>95無鉛</td>
+		<td>98無鉛</td>
+		<td>高級柴油</td>
+ 		</tr>
+		{%for o in result%}
+	 	<tr>
+		<td>{{ o.odate }}</td>
+	 	<td>{{ o.o92 }}</td>
+	 	<td>{{ o.o95 }}</td>
+	 	<td>{{ o.o98 }}</td>
+	 	<td>{{ o.ohigh }}</td>
+		</tr>
+	 	{% endfor %}
+	 	</table>
+		<div class="text-center">
+	 		<ul class="pagination pagination-lg">
+	 		{% if result.has_previous %}
+	 			<li>
+	 				<a href="?oil_date={{oil_date}}&page={{ result.previous_page_number}}" 
+	 				aria-label="Previous">
+	 				<span aria-hidden="true">&laquo;</span>
+	 				</a>
+	 			</li>
+	 		{% endif %}
+
+	 			{% for r in range %}
+				<li><a href="?oil_date={{oil_date}}&page={{r}}">{{r}}</a></li>
+				{% endfor %}
+			
+			{% if result.has_next %}
+	 			<li>
+	 				<a href="?oil_date={{oil_date}}&page={{ result.next_page_number}}" 
+	 				aria-label="Next">
+	 				<span aria-hidden="true">&raquo;</span>
+	 				</a>
+	 			</li>
+	 		{% endif %}
+	 		</ul>
+	 	</div>
+ {% endblock%}

@@ -1,0 +1,50 @@
+<!-- header.html -->
+{% load staticfiles %}
+<!--<div class="well">
+	<a href="/"><img src="{% static 'images/logo.png' %}"></a><h1 style="font-family: 微軟正黑體">宅天堂</h1>
+</div>-->
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moblie-nav">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">宅天堂</a>
+    </div>
+    <div>
+    <div class="collapse navbar-collapse" id="moblie-nav">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expeanded="false">幣別<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/currency/USD">美金USD</a></li>
+            <li><a href="/currency/HKD">港幣HKD</a></li>
+            <li><a href="/currency/GBP">英鎊GBP</a></li>
+            <li><a href="/currency/AUD">澳幣AUD</a></li>
+            <li><a href="/currency/CAD">加拿大幣CAD</a></li>
+            <li><a href="/currency/SGD">新加坡幣SGD</a></li>
+            <li><a href="/currency/CHF">瑞士法郎CHF</a></li>
+            <li><a href="/currency/JPY">日圓JPY</a></li>
+            <li><a href="/currency/ZAR">南非幣ZAR</a></li>
+            <li><a href="/currency/SEK">瑞典幣SEK</a></li>
+            <li><a href="/currency/NZD">紐元NZD</a></li>
+            <li><a href="/currency/THB">泰幣THB</a></li>
+            <li><a href="/currency/PHP">菲國比索PHP</a></li>
+            <li><a href="/currency/IDR">印尼幣IDR</a></li>
+            <li><a href="/currency/EUR">歐元EUR</a></li>
+            <li><a href="/currency/KRW">韓元KRW</a></li>
+            <li><a href="/currency/VND">越南盾VND</a></li>
+            <li><a href="/currency/MYR">馬來幣MYR</a></li>
+            <li><a href="/currency/CNY">人民幣CNY</a></li>
+          </ul>
+        </li>
+        <li><a href="/oilprice">中油油價</a></li>
+        <li><a href="/invoice">統一發票中獎號碼</a></li>
+      </ul>
+    </div>
+    </div>
+  </div>
+</nav>
